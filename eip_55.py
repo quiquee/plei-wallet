@@ -36,5 +36,4 @@ def test(addr_str):
     checksum_encoded = checksum_encode(addr_bytes)
     assert checksum_encoded == addr_str, f"{checksum_encoded} != expected {addr_str}"
 
-test("0xA123BC123")
 
