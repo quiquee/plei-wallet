@@ -40,5 +40,3 @@ def test():
     addr_validation("0xDAc1EA5070e179dE110962c609EBBa7E4eE939")
     
     
-
-test()
