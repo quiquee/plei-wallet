@@ -114,3 +114,5 @@ def test():
     print("Address m/0/0 ( 0x515a5...): " + ethFromPub(pub_key_0_u.ToBytes()))
     print("Terminated test 5")
 
+if __name__ == "__main__":
+   test()
