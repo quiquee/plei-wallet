@@ -4,6 +4,7 @@ import pleibip32
 import pleiutils
 import os
 import sys
+import re
 
 parser=argparse.ArgumentParser(description="A wallet for offline signing of Plei transactions",
                                 formatter_class=argparse.RawTextHelpFormatter)
@@ -40,13 +41,30 @@ if args.action == "xpub2addr":
     if(xpub):
         if not args.depth:
             print("Need to define a depth")        
-            sys.exit(1)
+            sys.exit(1)        
         
         else:
             print("Generating from xpub:")
-            bip32_ctx = pleibip32.deriveFromXPub(xpub,int(args.depth))
-            pub_key=bip32_ctx.PublicKey().RawUncompressed()
-            print(pleibip32.ethFromPub(pub_key.ToBytes()))
+            p=re.compile("(\d+)(\.+(\d+))*")
+            m=p.search(args.depth)
+            lastdepth=0
+            if not m:
+                print("Need to define a depth in the format 'n..m' , or 'n'")        
+                sys.exit(1)        
+
+            if m.group(3):                
+                print("Generaring multiple addresses from " +m.group(1) + " to " + m.group(3))
+                lastdepth=int(m.group(3))
+            else:            
+                print("Generaring single address " +m.group(1) )
+                lastdepth=int(m.group(1))
+            depth=int(m.group(1))
+            while depth<=lastdepth:
+            
+                bip32_ctx = pleibip32.deriveFromXPub(xpub,int(depth))
+                pub_key=bip32_ctx.PublicKey().RawUncompressed()
+                print(pleibip32.ethFromPub(pub_key.ToBytes()))
+                depth=depth+1
     else:
         print("Need to define XPUB environment")        
         sys.exit(1)
