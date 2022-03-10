@@ -21,6 +21,8 @@ parser.add_argument('action',
 genmaster       Generate a master key and shows all details (danger) 
 seed2addr       Uses the mnemonic to generate a new address using <path>
 xpub2addr       Uses the Xpub to generate a new address using <depth>
+
+<depth> can be specified as a single digit, or a sequence: 0..10 
 ''')
 
 args = parser.parse_args()
@@ -44,7 +46,7 @@ if args.action == "xpub2addr":
             sys.exit(1)        
         
         else:
-            print("Generating from xpub:")
+            print("Generating from xpub: " + xpub)
             p=re.compile("(\d+)(\.+(\d+))*")
             m=p.search(args.depth)
             lastdepth=0
@@ -58,6 +60,7 @@ if args.action == "xpub2addr":
             else:            
                 print("Generaring single address " +m.group(1) )
                 lastdepth=int(m.group(1))
+
             depth=int(m.group(1))
             while depth<=lastdepth:
             

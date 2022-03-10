@@ -1,0 +1,33 @@
+[
+    {
+        "description": "Pay SLP from and to my own wallets",
+        "from": "ronin:21ccda5126537ed51242695d2d0d05cc1c818af6",
+        "to": "ronin:b3719e53769aa95b6a37529fcc398aa64f4afacf",
+        "ccy": "SLP",
+        "amt": 10
+    },
+
+    {
+        "description": "Pay RON from and to my own wallets",
+        "from": "ronin:21ccda5126537ed51242695d2d0d05cc1c818af6",
+        "to": "ronin:b3719e53769aa95b6a37529fcc398aa64f4afacf",
+        "ccy": "RON",
+        "amt": 10
+    },
+
+    {
+        "description": "Pay WETH from and to my own wallets",
+        "from": "ronin:21ccda5126537ed51242695d2d0d05cc1c818af6",
+        "to": "ronin:b3719e53769aa95b6a37529fcc398aa64f4afacf",
+        "ccy": "WETH",
+        "amt": 0.0000010
+    },
+    {
+        "description": "Pay ETHER from and to my own wallets",
+        "from": "0x21ccda5126537ed51242695d2d0d05cc1c818af6",
+        "to": "0xb3719e53769aa95b6a37529fcc398aa64f4afacf",
+        "ccy": "ETH",
+        "amt": 0.0000010
+    }
+
+]
