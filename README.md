@@ -1,8 +1,8 @@
-# plei-address-validation
+# plei-utils
 A library to validate addresses , potentially add whitelisted addresses in a smart way
 
 ```
-enrique@UX425EA ~/project/plei-address-validation $ python3
+enrique@UX425EA ~/project/plei-wallet $ python3
 Python 3.8.10 (default, Sep 28 2021, 16:10:42) 
 [GCC 9.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
