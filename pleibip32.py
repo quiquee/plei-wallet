@@ -22,6 +22,10 @@ def deriveFromXPub(xpub_key,depth):
     bip32_ctx = Bip32Secp256k1.FromExtendedKey(xpub_key)
     return bip32_ctx.ChildKey(depth)
 
+def deriveFromXPriv(xpriv_key,depth):    
+    bip32_ctx = Bip32Secp256k1.FromExtendedKey(xpriv_key)
+    return bip32_ctx.ChildKey(depth)
+
 def ethFromPub(pub_key_bytes):
     addr= keccak_256(pub_key_bytes[1:]).digest()[-20:]
     return "0x{}".format( addr.hex())
