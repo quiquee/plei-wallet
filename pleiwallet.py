@@ -109,9 +109,10 @@ if args.action == "xpriv2addr":
             
                 bip32_ctx = pleibip32.deriveFromXPriv(xpriv,int(depth))
                 pub_key=bip32_ctx.PublicKey().RawUncompressed()
-                print(pleibip32.ethFromPub(pub_key.ToBytes()))
-                print(bip32_ctx.PublicKey().RawCompressed().ToHex())
-                print(bip32_ctx.PrivateKey().Raw().ToHex())
+                ethaddress=pleibip32.ethFromPub(pub_key.ToBytes())
+                pubkey=bip32_ctx.PublicKey().RawCompressed().ToHex()
+                privkey=bip32_ctx.PrivateKey().Raw().ToHex()
+                print (f"{ethaddress}\t{pubkey}\t{privkey}")
                 
                 depth=depth+1
     else:
