@@ -53,8 +53,7 @@ Check that you have exactly the same output, but for the Address, which will all
 ```
 Generating from xpriv: xprvA1ENEH
 Generaring multiple addresses from 0 to 5
-Generating from xpriv: xprvA1ENEH
-Generaring multiple addresses from 0 to 5
+
 0xaa646a03625e8b237375a4b8d019cf45cdabec1a      02c24235eef43126ade108173816b4a08b53a31f9e1ef313d59c1da98ff96a0ef8      897baed181da130c5f83a9521a537ee63a9f7504e07fc7b1e5fa53513eb52297
 0x859c95e52c0c22fade1e8bfd5a58eb3c1d634846      021fdfbb1722df0849c3e0bbc06fc1e347feb1336b2f5fd62c28131faf71b16dfc      242b80849c7b7f77200bfa5f056d0233e7145150bd0c0b68ff356545c9dec017
 0xf2fe6b62db78d18d8fb9e97dad20dbc08f33903e      02a43f040874318da2c00df970654d8bfbc0dd50dafbc928b70fd2d40959b4fd0d      a8a3fd9030012b3068e32000dd41fe33cfb9a67a9d780650b5015176d2646441
