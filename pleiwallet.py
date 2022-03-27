@@ -28,6 +28,8 @@ genmaster       Generate a master key and shows all details (danger)
 seed2addr       Uses the mnemonic to generate a new address using <path>
 xpub2addr       Uses the Xpub to generate a new address using <depth>
 xpriv2addr      Uses the Xpriv to generate new addresses using <depth>
+seed2bip32keys  Uses the mnemonic to generate the BIP32 extended keys using <path>
+
 <depth> can be specified as a single digit, or a sequence: 0..10 
 ''')
 
@@ -37,8 +39,8 @@ args = parser.parse_args()
 if args.action == "genmaster":
     mnemonic = os.getenv('MNEMONIC')
     if(mnemonic):
-        bip32_ctx=pleibip32.genMaster(mnemonic)
-        print (bip32_ctx.PublicKey().ToExtended() )
+        print(f'Generate root key using mnemonic: %s ...' % mnemonic[:20])
+        bip32_ctx=pleibip32.genMaster(mnemonic)        
         print (bip32_ctx.PrivateKey().ToExtended() )
     else:
         print("Need to define a mnemonic")
@@ -130,7 +132,24 @@ if args.action == "seed2addr":
             bip32_ctx=pleibip32.genAddress(mnemonic, args.path)            
             pub_key=bip32_ctx.PublicKey().RawUncompressed()
 
-            #print(pleibip32.ethFromPub(pub_key.ToBytes()))
+            print(pleibip32.ethFromPub(pub_key.ToBytes()))
+            
+                
+    else:
+        print("Need to define a mnemonic, using the MNEMONIC environment")
+        sys.exit(1)
+
+if args.action == "seed2bip32keys":
+    mnemonic = os.getenv('MNEMONIC')
+    if mnemonic:
+        if not args.path:
+            print("Need to define a derivation path")
+            sys.exit(1)
+        else:
+            print("Generating BIP32 extended keys from mnemonic using path " + args.path)
+            bip32_ctx=pleibip32.genAddress(mnemonic, args.path)            
+            pub_key=bip32_ctx.PublicKey().RawUncompressed()
+            
             print(bip32_ctx.PublicKey().ToExtended())
             if args.W:
                 print(bip32_ctx.PrivateKey().ToExtended())
@@ -138,4 +157,3 @@ if args.action == "seed2addr":
     else:
         print("Need to define a mnemonic, using the MNEMONIC environment")
         sys.exit(1)
-

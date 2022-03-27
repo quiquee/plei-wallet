@@ -25,6 +25,15 @@ $ ./pleiwallet.py --path "m/44'/60'/0'/0/0"  seed2addr
 Generating from mnemonic using path m/44'/60'/0'/0/0
 0x21ccda5126537ed51242695d2d0d05cc1c818af6
 ```
+## Generate BIP32 extended keys from path
+```
+export MNEMONIC="grow either tiny identify decrease sand immune perfect warrior reward music boil"
+$ ./pleiwallet.py --path "m/44'/60'/0'/0"  seed2bip32keys -W
+Generating BIP32 extended keys from mnemonic using path m/44'/60'/0'/0
+xpub6EAX9vxqYHfCaGioK9XL54t6idECWKxRJ9TvCcpSTLB8ht6gJKWkgv9AcgfdaVLbLsZehC6UyAc2hs4wkWpaokXm5UmD2Uz7kRqVGh4mLW6
+xprvA1BAkRRwhv6uMneLD7zKhvwNAbPi6sEZvvYKQEQptze9q5mXknCW97pgmSAE4cciAjFURnBFpt42bMcHiGjAN4Hw7M6Az9GUdqV5gNGrQD4
+
+```
 
 ## Using the XPUB, generate an address at depth n 
 ```
